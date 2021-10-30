@@ -53,12 +53,8 @@ def mak(message):
                 m = bot.send_message(message.chat.id, c(so), reply_to_message_id=message.message_id)
         except:
             pass
-    if message.text == "/go":
-        s2o = open("makalat.txt", "r", encoding="utf-8").read()
-        r = random.randint(0,2)
-        so = open("makalat.txt", "r", encoding="utf-8").read().splitlines()[int(r)].split()
-        m = bot.send_message(message.chat.id, c(so), reply_to_message_id=message.message_id)
-        bot.register_next_step_handler(m, got)
+    if message.text "/go":
+    	bot.reply_to(message,"قريبا")
     if message.chat.type == "group" or message.chat.type == "supergroup":
         if message.text ==  "تعطيل بوت المقالات" and bot.get_chat_member(message.chat.id,message.from_user.id).status in ['administrator','creator']:
             open(f"{message.chat.id}.txt","w+").write(f"False")
@@ -89,5 +85,3 @@ def got(message):
     m = bot.send_message(message.chat.id, c(so), reply_to_message_id=message.message_id)
     bot.register_next_step_handler(m, got)
 bot.polling(True)
-
-
