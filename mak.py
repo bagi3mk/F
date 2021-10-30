@@ -62,10 +62,10 @@ def mak(message):
     if message.chat.type == "group" or message.chat.type == "supergroup":
         if message.text ==  "تعطيل بوت المقالات" and bot.get_chat_member(message.chat.id,message.from_user.id).status in ['administrator','creator']:
             open(f"{message.chat.id}.txt","w+").write(f"False")
-            bot.reply_to(message,f"- من قبل {message.from_user.first_name} تم تفعيل البوت بلمجموعة .")
+            bot.reply_to(message,f"- من قبل {message.from_user.first_name} تم تعطيل البوت بلمجموعة .")
         if message.text == "تفعيل بوت المقالات" and bot.get_chat_member(message.chat.id,message.from_user.id).status in ['administrator','creator']:
             open(f"{message.chat.id}.txt","w+").write(f"True")
-            bot.reply_to(message, f"- من قبل {message.from_user.first_name} تم تعطيل البوت بلمجموعة .")
+            bot.reply_to(message, f"- من قبل {message.from_user.first_name} تم تفعيل البوت بلمجموعة .")
         if message.text == "مقالات":
             s2o = open("makalat.txt", "r", encoding="utf-8").read()
             r = random.randint(0, 2)
